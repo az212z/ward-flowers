@@ -357,7 +357,7 @@ h1,h2,h3,h4{font-family:var(--fa-d);font-weight:700;line-height:1.2}
   var burger=document.querySelector('.burger'),mob=document.getElementById('mob');
   if(!burger){burger=document.createElement('button');burger.className='burger';burger.setAttribute('aria-label','القائمة');burger.innerHTML='<span></span><span></span><span></span>';document.querySelector('.nbar').appendChild(burger);}
   function toggle(){burger.classList.toggle('x');mob.classList.toggle('open');document.body.style.overflow=mob.classList.contains('open')?'hidden':''}
-  burger.addEventListener('click',toggle);
+  if(burger)burger.addEventListener('click',toggle);
   mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){if(mob.classList.contains('open'))toggle()})});
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function countUp(el){var t=parseFloat(el.getAttribute('data-count')),dec=parseInt(el.getAttribute('data-dec')||'0'),suf=el.getAttribute('data-suf')||'';if(reduce){el.textContent=(dec?t.toFixed(dec):t)+suf;return;}var st=null,dur=1500;
